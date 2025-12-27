@@ -33,10 +33,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $conn,
             "INSERT INTO students (name, email, course)
              VALUES ('$name', '$email', '$course')"
-        );
 
-        
+        );
+        if (empty($error)) {
+    $query = "INSERT INTO students (name, email, course)
+              VALUES ('$name', '$email', '$course')";
+
+    if (mysqli_query($conn, $query)) {
+        echo "<p style='color:green;'>Student added successfully!</p>";
+    } else {
+        echo "<p style='color:red;'>Error adding student</p>";
     }
+}
+}
 }
 ?>
 

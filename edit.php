@@ -13,12 +13,16 @@ if (isset($_POST['update'])) {
     $email  = $_POST['email'];
     $course = $_POST['course'];
 
-    mysqli_query(
-        $conn,
+    $query = 
         "UPDATE students 
          SET name='$name', email='$email', course='$course' 
          WHERE id=$id"
-    );
+    ;
+    if (mysqli_query($conn, $query)) {
+        echo "<p style='color:green;'>Student details edited successfully!</p>";
+    } else {
+        echo "<p style='color:red;'>Error editing student details</p>";
+    }
 
  
 }

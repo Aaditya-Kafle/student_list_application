@@ -17,7 +17,7 @@ $result = mysqli_query($conn, $sql);
 
 <h1>Students List</h1>
 
-<div class="top-bar">
+<div class="add_std">
     <a href="create.php" class="add-btn">+ Add New Student</a>
 </div>
 
